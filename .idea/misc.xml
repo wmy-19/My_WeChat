@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/layout_button.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/tab01.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/tab02.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/tab03.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/tab04.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWeChat0176/app/src/main/res/layout/top.xml" value="0.1" />
+        <entry key="..\:/AndroidTool/AndroidProject/MyWechat/app/src/main/res/layout/tab01.xml" value="0.1" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/activity_main.xml" value="0.2494488263903288" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/fragment_blank1.xml" value="0.22083333333333333" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/layout_button.xml" value="0.22871376811594202" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/layoutwechat.xml" value="0.22083333333333333" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/tab01.xml" value="0.22083333333333333" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/tab02.xml" value="0.22871376811594202" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/tab03.xml" value="0.22871376811594202" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/tab04.xml" value="0.22871376811594202" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/top.xml" value="0.22083333333333333" />
+        <entry key="..\:/Program-Files/Android/AndroidStudioProjects/MyWeChat0176/app/src/main/res/layout/txt1.xml" value="0.22871376811594202" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
