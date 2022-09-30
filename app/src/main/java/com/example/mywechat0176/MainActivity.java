@@ -1,95 +1,132 @@
-package com.example.mywechat0176;
+package com.example.mywechat;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private Fragment tab01= new weixinFragment();
+    private Fragment tab02= new friendsFragment();
+    private Fragment tab03= new addressFragment();
+    private Fragment tab04= new settingsFragment();
+    private FragmentManager fm;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Fragment fragment1,fragment2,fragment3,fragment4;
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
-    private LinearLayout linearLayout1,linearLayout2,linearLayout3,linearLayout4;
+    private ImageButton weixinImg;
+    private ImageButton friendsImg;
+    private ImageButton addressImg;
+    private ImageButton settingsImg;
+
+    private LinearLayout TabWeixin;
+    private LinearLayout TabFrd;
+    private LinearLayout TabAddress;
+    private LinearLayout TabSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        linearLayout1=findViewById(R.id.linearLayout1);
-        linearLayout2=findViewById(R.id.linearLayout2);
-        linearLayout3=findViewById(R.id.linearLayout3);
-        linearLayout4=findViewById(R.id.linearLayout4);
+        initFragment();
+        initView();
+        initEvent();
+        select(0);
+    }
+    private void initView(){
+        TabWeixin =(LinearLayout)findViewById(R.id.tab_weixin);
+        TabFrd = (LinearLayout)findViewById(R.id.tab_friends);
+        TabAddress = (LinearLayout)findViewById(R.id.tab_contacts);
+        TabSettings =(LinearLayout)findViewById(R.id.tab_settings);
 
-        fragment1=new BlankFragment1();//父子两类方法函数都可用
-        fragment2=new BlankFragment2();
-        fragment3=new BlankFragment3();
-        fragment4=new BlankFragment4();
-
-        manager=getSupportFragmentManager();
-
-        initial();
-        hide();
-
-        linearLayout1.setOnClickListener(this);
-        linearLayout2.setOnClickListener(this);
-        linearLayout3.setOnClickListener(this);
-        linearLayout4.setOnClickListener(this);
+        weixinImg = (ImageButton) findViewById(R.id.tab_weixin_img);
+        friendsImg = (ImageButton) findViewById(R.id.tab_friends_img);
+        addressImg =  (ImageButton) findViewById(R.id.tab_contacts_img);
+        settingsImg = (ImageButton) findViewById(R.id.tab_settings_img);
     }
 
-    private void initial() {
-        FragmentTransaction transaction=manager.beginTransaction()
-                .add(R.id.framelayout,fragment1)
-                .add(R.id.framelayout,fragment2)
-                .add(R.id.framelayout,fragment3)
-                .add(R.id.framelayout,fragment4);
+    private void initFragment(){
+        fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.add(R.id.id_content,tab01);
+        transaction.add(R.id.id_content,tab02);
+        transaction.add(R.id.id_content,tab03);
+        transaction.add(R.id.id_content,tab04);
         transaction.commit();
     }
 
-    @Override
-    public void onClick(View view) {
-        int i=0;
-        switch(view.getId()){
-            case R.id.linearLayout1:select(1);
-                break;
-            case R.id.linearLayout2:select(2);
-                break;
-            case R.id.linearLayout3:select(3);
-                break;
-            case R.id.linearLayout4:select(4);
-                break;
-        }
-
+    private void hideFragment(FragmentTransaction transaction){
+        transaction.hide(tab01);
+        transaction.hide(tab02);
+        transaction.hide(tab03);
+        transaction.hide(tab04);
     }
-    public void select(int i){
-        hide();
+
+    private void select(int i){
+        FragmentTransaction transaction = fm.beginTransaction();
+        hideFragment(transaction);
+        resetImg();
         switch (i){
-            case 1:showFrament(fragment1);
+            case 0:
+                transaction.show(tab01);
+                weixinImg.setImageResource(R.drawable.tab_weixin_pressed);
                 break;
-            case 2:showFrament(fragment2);
+            case 1:
+                transaction.show(tab02);
+                friendsImg.setImageResource(R.drawable.tab_find_frd_pressed);
                 break;
-            case 3:showFrament(fragment3);
+            case 2:
+                transaction.show(tab03);
+                addressImg.setImageResource(R.drawable.tab_address_pressed);
                 break;
-            case 4:showFrament(fragment4);
+            case 3:
+                transaction.show(tab04);
+                settingsImg.setImageResource(R.drawable.tab_settings_pressed);
                 break;
             default:
                 break;
         }
-    }
-
-    private void showFrament(Fragment fragment) {
-        transaction.show(fragment);
-    }
-
-    private void hide(){
-        transaction=manager.beginTransaction()
-                .hide(fragment1)
-                .hide(fragment2)
-                .hide(fragment3)
-                .hide(fragment4);
         transaction.commit();
     }
+
+    private void resetImg(){
+        weixinImg.setImageResource(R.drawable.tab_weixin_normal);
+        friendsImg.setImageResource(R.drawable.tab_find_frd_normal);
+        addressImg.setImageResource(R.drawable.tab_address_normal);
+        settingsImg.setImageResource(R.drawable.tab_settings_normal);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        resetImg();
+        switch (v.getId()){
+            case R.id.tab_weixin:
+                select(0);
+                break;
+            case R.id.tab_friends:
+                select(1);
+                break;
+            case R.id.tab_contacts:
+                select(2);
+                break;
+            case R.id.tab_settings:
+                select(3);
+                break;
+        }
+    }
+
+    public void initEvent(){
+        TabWeixin.setOnClickListener(this);
+        TabFrd.setOnClickListener(this);
+        TabAddress.setOnClickListener(this);
+        TabSettings.setOnClickListener(this);
+    }
+
 }
